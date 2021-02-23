@@ -4,22 +4,34 @@ function renderRows(selector, data, months) {
     const DOM = document.querySelector(selector);
     let HTML = '';
     DOM.innerHTML = '';
-
+    let income = 0;
+    let expense = 0;
+    let balance = 0;
+    let allMonths = 0;
     for(let i = 0; i < dataLength; i++){
-        let income = data[i].income;
-        let expense = data[i].expense;
-        let balance = 0;
-        let month = months[i]
-
-       
+        income = data[i].income;
+        expense = data[i].expense;
+        balance = 0;
+        allMonths = months[i]
+        balance = income - expense;
+        
+         if(income === undefined) {
+                balance = expense * (-1);
+         }
+        if(expense === undefined) {
+                balance = income;
+        
+        }
+        
             HTML += `<div class="table-row">
                     <div class="cell">${i+1}</div>
-                    <div class="cell">${month}</div>
-                    <div class="cell">${data[i].income === undefined? 0 : data[i].income+".00 Eur"}</div>
-                    <div class="cell">${data[i].expense === undefined? 0:data[i].expense+".00 Eur"}</div>
-                    <div class="cell">${typeof balance === "sintrg"? balance: balance+".00 Eur" }</div>
+                    <div class="cell">${allMonths}</div>
+                    <div class="cell">${income === undefined? "-": income+".00 Eur"}</div>
+                    <div class="cell">${expense === undefined? "-": expense+".00 Eur"}</div>
+                    <div class="cell">${balance+".00 Eur"}</div>
                 </div>`;
     }
+
     return DOM.innerHTML = HTML;
 }
 
