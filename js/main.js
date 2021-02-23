@@ -141,7 +141,8 @@ sortedMonths.forEach(el => {
 const DOMLowestExpenses = document.getElementById('minExpense');
 DOMLowestExpenses.innerText = lowestExpenses.month;
 
-const DOMTitle
+const DOMTitle = document.querySelector('.container > .row > h1');
+DOMTitle.innerText = "Karolio metai";
 
 
 // for (let i=0; i < sortedMonths.length; i++) {
