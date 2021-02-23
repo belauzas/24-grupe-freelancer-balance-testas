@@ -15,8 +15,6 @@ let expenses = 0;
 let balance = 0;
 const DOM = document.querySelector('.table-content');
 
-console.log(sortedMonths[1].hasOwnProperty('income'));
-
 
 for (let i = 0; i < sortedMonths.length; i++) {
     if (sortedMonths[i].hasOwnProperty('expense') && sortedMonths[i].hasOwnProperty('income')) {
@@ -91,8 +89,67 @@ DOMexpenses.innerText = `${expenses}.00`;
 const DOMbalance = document.querySelector('.table-footer > .cell:nth-of-type(5)');
 DOMbalance.innerText = `${balance}.00`;
 
-console.log(income, expenses, balance);
+let highestPaidMonth = {month: "", income: 0};
 
-const sortedIncome = sortedMonths.sort((a,b))
+sortedMonths.forEach(el => {
+    const { month, income, expense } = el;
+    if(income > highestPaidMonth.income){
+       highestPaidMonth.month = month;
+        highestPaidMonth.income = income;}
+    });
 
-console.log(sortedMonths);
+const DOMHighestPaid = document.getElementById('maxIncome');
+DOMHighestPaid.innerText = highestPaidMonth.month; 
+      
+let lowestPaidMonth = {month: "", income: Infinity};
+
+sortedMonths.forEach(el => {
+    const { month, income, expense } = el;
+    if(income < lowestPaidMonth.income){
+       lowestPaidMonth.month = month;
+       lowestPaidMonth.income = income;}
+    });
+
+console.log(lowestPaidMonth);
+
+const DOMLowestPaid = document.getElementById('minIncome');
+DOMLowestPaid.innerText = lowestPaidMonth.month;
+
+let highestExpenses = {month: "", expense: 0};
+
+sortedMonths.forEach(el => {
+    const { month, income, expense } = el;
+    if(expense > highestExpenses.expense){
+       highestExpenses.month = month;
+        highestExpenses.expense = expense;}
+    });
+
+console.log(highestExpenses)
+
+const DOMHighestExpenses = document.getElementById('maxExpense');
+DOMHighestExpenses.innerText = highestExpenses.month;
+
+let lowestExpenses = {month: "", expense: Infinity};
+
+sortedMonths.forEach(el => {
+    const { month, income, expense } = el;
+    if(expense < lowestExpenses.expense){
+       lowestExpenses.month = month;
+        lowestExpenses.expense = expense;}
+    });
+
+const DOMLowestExpenses = document.getElementById('minExpense');
+DOMLowestExpenses.innerText = lowestExpenses.month;
+
+const DOMTitle
+
+
+// for (let i=0; i < sortedMonths.length; i++) {
+//     if (sortedMonths[i].income) {
+//         if (sortedMonths[i].income > sortedMonths[i+1].income) {
+//             highestPaidMonth = sortedMonths[i].month;
+//         } else {
+//             highestPaidMonth = sortedMonths[i+1].month;
+//         }
+//     }
+// }
