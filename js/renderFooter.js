@@ -1,9 +1,9 @@
-function renderFooter(selectorOne,selectorTwo, selectorThree , data) {
-    const DOMone = document.querySelector(selectorOne)
-    const DOMtwo = document.querySelector(selectorTwo)
-    const DOMthree = document.querySelector(selectorThree)
+function renderFooter(selector, data) {
+    const DOM = document.querySelector(selector)
+    // const DOMtwo = document.querySelector(selectorTwo)
+    // const DOMthree = document.querySelector(selectorThree)
     const dataLength = data.length
-
+    let HTML = '';
     let income = 0;
     let expense = 0;
     let expenseSum = 0;
@@ -22,11 +22,16 @@ function renderFooter(selectorOne,selectorTwo, selectorThree , data) {
         } else {
             expenseSum = expense + expenseSum
         }
+        HTML =   `<div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell ">${incomeSum}.00 Eur</div>
+        <div class="cell ">${expenseSum}.00 Eur</div>
+        <div class="cell ">${incomeSum - expenseSum}.00 Eur</div>`
     
     
     }
     
-    return DOMone.innerHTML = `${incomeSum}.00 Eur`, DOMtwo.innerHTML = `${expenseSum}.00 Eur`, DOMthree.innerHTML= `${incomeSum - expenseSum}.00 Eur`
+    return DOM.innerHTML = HTML
 
 }
 

@@ -5,6 +5,6 @@ import {renderFooter} from './renderFooter.js'
 
 
 renderRows('.table-content', account, months)
-renderFooter('.incomeSum','.expenseSum','.balanceSum', account)
+renderFooter('.table-footer', account)
 
 
