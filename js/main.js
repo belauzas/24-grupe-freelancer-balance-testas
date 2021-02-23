@@ -143,14 +143,3 @@ DOMLowestExpenses.innerText = lowestExpenses.month;
 
 const DOMTitle = document.querySelector('.container > .row > h1');
 DOMTitle.innerText = "Karolio metai";
-
-
-// for (let i=0; i < sortedMonths.length; i++) {
-//     if (sortedMonths[i].income) {
-//         if (sortedMonths[i].income > sortedMonths[i+1].income) {
-//             highestPaidMonth = sortedMonths[i].month;
-//         } else {
-//             highestPaidMonth = sortedMonths[i+1].month;
-//         }
-//     }
-// }
