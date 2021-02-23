@@ -32,3 +32,12 @@ renderTable(months, account);
 const totalsSums = [totalByKey(account, 'income'), totalByKey(account, 'expense'), totalByKey(account, 'income') - totalByKey(account, 'expense')];
 const footerSelector = '.table-footer > .cell:nth-of-type';
 totalsSums.forEach((sum, index) => document.querySelector(`${footerSelector}(${index + 3})`).innerText = formatMoney(sum));
+
+
+const findMonths = [
+    { id: 'minIncome', func: minMonthByKey, type: 'income' },
+    { id: 'maxIncome', func: maxMonthByKey, type: 'income' },
+    { id: 'minExpense', func: minMonthByKey, type: 'expense' },
+    { id: 'maxExpense', func: maxMonthByKey, type: 'expense' },
+];
+findMonths.forEach(set => document.querySelector('#' + set.id).innerText = getMonthName(set.func(account, set.type), months));
