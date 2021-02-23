@@ -28,3 +28,7 @@ const renderTable = (monthNames, cashFlow) => {
 }
 
 renderTable(months, account);
+
+const totalsSums = [totalByKey(account, 'income'), totalByKey(account, 'expense'), totalByKey(account, 'income') - totalByKey(account, 'expense')];
+const footerSelector = '.table-footer > .cell:nth-of-type';
+totalsSums.forEach((sum, index) => document.querySelector(`${footerSelector}(${index + 3})`).innerText = formatMoney(sum));
