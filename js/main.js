@@ -3,17 +3,15 @@ document.title = 'Vadimo metai'
 
 const menesiai = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'];
 
-const months = account.map((month) => month.month);
+// const months = account.map((month) => month.month);
 
 let HTML = ''
 let incomeTotal = 0;
 let expenseTotal = 0;
-const allIncome = []
 const DOM = document.querySelector('.table-content');
 const tableIncome = document.querySelector('.total_income')
 const tableExpense = document.querySelector('.total_expense')
 const tableBalance = document.querySelector('.final_balance')
-const minIncome = document.querySelector('#minIncome')
 
  for(const item of account) {
      let balance = 0;
@@ -39,7 +37,7 @@ const minIncome = document.querySelector('#minIncome')
         month = menesiai[1];
         break;
         case 3:
-        month = menesiai[2]
+        month = menesiai[2];
         break;
         case 4:
         month = menesiai[3];
@@ -79,10 +77,8 @@ const minIncome = document.querySelector('#minIncome')
    
  incomeTotal += item.income;
  expenseTotal += item.expense
- allIncome.push(item.income);
 }
-let min = Math.min.apply(null, allIncome.filter(n => n > 1))
-minIncome.innerHTML = min
+
 tableIncome.innerHTML = `${incomeTotal} Eur`
 tableExpense.innerHTML = `${expenseTotal} Eur`
 tableBalance.innerHTML = `${incomeTotal - expenseTotal} Eur`
