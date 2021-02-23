@@ -5,7 +5,12 @@ const menesiai = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Biržel
 const months = account.map((month) => month.month);
 
 let HTML = ''
+let incomeTotal = 0;
+let expenseTotal = 0;
 const DOM = document.querySelector('.table-content');
+const tableIncome = document.querySelector('.total_income')
+const tableExpense = document.querySelector('.total_expense')
+const tableBalance = document.querySelector('.final_balance')
 
  for(const item of account) {
      let balance = 0;
@@ -68,7 +73,16 @@ const DOM = document.querySelector('.table-content');
      <div class="cell">${item.expense} Eur</div>
      <div class="cell">${balance} Eur</div>
  </div>`
- }
+   
+ incomeTotal += item.income;
+ expenseTotal += item.expense
+
+ 
+}
+
+tableIncome.innerHTML = `${incomeTotal} Eur`
+tableExpense.innerHTML = `${expenseTotal} Eur`
+tableBalance.innerHTML = `${incomeTotal - expenseTotal} Eur`
 
  DOM.innerHTML = HTML;
 
