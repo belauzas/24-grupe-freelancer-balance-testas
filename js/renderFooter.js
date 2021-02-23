@@ -1,7 +1,5 @@
 function renderFooter(selector, data) {
     const DOM = document.querySelector(selector)
-    // const DOMtwo = document.querySelector(selectorTwo)
-    // const DOMthree = document.querySelector(selectorThree)
     const dataLength = data.length
     let HTML = '';
     let income = 0;
