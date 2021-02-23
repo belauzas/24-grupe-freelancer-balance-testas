@@ -1,4 +1,5 @@
 import{account} from './data.js';
+document.title = 'Vadimo metai'
 
 const menesiai = ['Sausis', 'Vasaris', 'Kovas', 'Balandis', 'Gegužė', 'Birželis', 'Liepa', 'Rugpjūtis', 'Rugsėjis', 'Spalis', 'Lapkritis', 'Gruodis'];
 
@@ -7,10 +8,12 @@ const months = account.map((month) => month.month);
 let HTML = ''
 let incomeTotal = 0;
 let expenseTotal = 0;
+const allIncome = []
 const DOM = document.querySelector('.table-content');
 const tableIncome = document.querySelector('.total_income')
 const tableExpense = document.querySelector('.total_expense')
 const tableBalance = document.querySelector('.final_balance')
+const minIncome = document.querySelector('#minIncome')
 
  for(const item of account) {
      let balance = 0;
@@ -76,10 +79,10 @@ const tableBalance = document.querySelector('.final_balance')
    
  incomeTotal += item.income;
  expenseTotal += item.expense
-
- 
+ allIncome.push(item.income);
 }
-
+let min = Math.min.apply(null, allIncome.filter(n => n > 1))
+minIncome.innerHTML = min
 tableIncome.innerHTML = `${incomeTotal} Eur`
 tableExpense.innerHTML = `${expenseTotal} Eur`
 tableBalance.innerHTML = `${incomeTotal - expenseTotal} Eur`
