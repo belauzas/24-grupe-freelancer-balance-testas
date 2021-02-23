@@ -11,13 +11,15 @@ const DOM = document.querySelector('.table-content');
      let balance = 0;
         if (!item.expense){
             balance = item.income;
-            item.expense = 0
+            item.expense = 0;
         }
 
         if (!item.income){
-            balance = -item.expense
-            item.income = 0
+            balance = -item.expense;
+            item.income = 0;
         }
+
+        balance = item.income - item.expense;
 
     let month = '';
 
