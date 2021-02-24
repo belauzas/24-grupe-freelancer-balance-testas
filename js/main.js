@@ -23,19 +23,14 @@ function renderTable() {
         total -= money.expense;
         totalIncome += money.income;
         totalExpense += money.expense;
-        if (!money.income) {
-            money.income = '-';
-        }
-        if (!money.expense) {
-            money.expense = '-';
-        }
+
         HTML += `
             <div class="table-row">
                 <div class="cell">${month.index}</div>
                 <div class="cell">${month.monthName}</div>
-                <div class="cell">${money.income}</div>
-                <div class="cell">${money.expense}</div>
-                <div class="cell">${total}</div>
+                <div class="cell">${money.income}.00 Eur</div>
+                <div class="cell">${money.expense}.00 Eur</div>
+                <div class="cell">${total}.00 Eur</div>
             </div>`
     }
     tableDOM.innerHTML = HTML;
@@ -43,9 +38,9 @@ function renderTable() {
     HTML = `
                 <div class="cell"></div>
                 <div class="cell"></div>
-                <div class="cell">${totalIncome} Eur</div>
-                <div class="cell">${totalExpense} Eur</div>
-                <div class="cell total">${total} Eur</div>
+                <div class="cell">${totalIncome}.00 Eur</div>
+                <div class="cell">${totalExpense}.00 Eur</div>
+                <div class="cell total">${total}.00 Eur</div>
             `
     footerDOM.innerHTML = HTML;
 }
