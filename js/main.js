@@ -68,7 +68,7 @@ const tableBalance = document.querySelector('.final_balance')
     }
 
      HTML += `<div class="table-row">
-     <div class="cell">${account.indexOf(item)}</div>
+     <div class="cell">${account.indexOf(item)+1}</div>
      <div class="cell">${month}</div>
      <div class="cell">${item.income} Eur</div>
      <div class="cell">${item.expense} Eur</div>
