@@ -1,6 +1,9 @@
 import {account, months} from './data.js'
 
 const table= document.querySelector('.table-content');
+const totalIncome = document.getElementById('incomes')
+const totalExpenses = document.getElementById('expenses')
+const balance = document.getElementById('balance')
 
 
 
@@ -29,6 +32,24 @@ let display = account.map(function(item){
 display = display.join('');
 table.innerHTML = display
 
+
+
+// calcs
+let incomes = account.map(function(item){
+   return validations(item.income)
+}).reduce((a, b) => a + b, 0);
+
+let expenses = account.map(function(item){
+   return validations(item.expense)
+}).reduce((a, b) => a + b, 0);
+
+
+console.log(incomes);
+console.log(expenses);
+
+totalIncome.innerHTML = incomes
+totalExpenses.innerHTML = expenses
+balance.innerHTML = incomes - expenses
 
 
 
