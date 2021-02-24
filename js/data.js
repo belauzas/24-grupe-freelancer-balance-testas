@@ -27,3 +27,5 @@ const months = [
     { monthName: "Lapkritis", index: 11 },
     { monthName: "Gruodis", index: 12 }
 ];
+
+export { account, months }
