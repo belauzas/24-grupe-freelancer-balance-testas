@@ -12,3 +12,18 @@ const account = [
     { month: 8, income: 450, expense: 120 },
     { month: 12, expense: 200 }
 ];
+
+const months = [
+    { monthName: "Sausis", index: 1 },
+    { monthName: "Vasaris", index: 2 },
+    { monthName: "Kovas", index: 3 },
+    { monthName: "Balandis", index: 4 },
+    { monthName: "Geguze", index: 5 },
+    { monthName: "Birzelis", index: 6 },
+    { monthName: "Liepa", index: 7 },
+    { monthName: "Rugpjutis", index: 8 },
+    { monthName: "Rugsejis", index: 9 },
+    { monthName: "Spalis", index: 10 },
+    { monthName: "Lapkritis", index: 11 },
+    { monthName: "Gruodis", index: 12 }
+];
