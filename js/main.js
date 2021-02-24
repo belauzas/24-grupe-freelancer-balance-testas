@@ -44,14 +44,12 @@ let expenses = account.map(function(item){
 }).reduce((a, b) => a + b, 0);
 
 
-console.log(incomes);
-console.log(expenses);
-
 totalIncome.innerHTML = incomes
 totalExpenses.innerHTML = expenses
 balance.innerHTML = incomes - expenses
 
 
-
+// suvestine
+// kol kas nera 
 
 
